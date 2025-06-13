@@ -16,7 +16,8 @@ With this, I should be able to call the API from kotlin code through the generat
 I had several problems while trying to implement this task, which I will list below:
 1. These past 2 weeks I have had a lot of exams, project presentations and deliverables, which consumed a lot of my time, leading to starting it late and not being able to finishing it. I now have some breathing room, to continue working on it, which I intend on doing if there is still time left.
 2. I can run Linux or Windows with my setup, but I cannot run macOS and therefore can't use Xcode or compile Swift code, which makes it hard for me to compile the ios Target and test it. I was able to borrow a Mac, but with limited time  which makes it hard to test the code and the idea.
-3. I had to learn how to use SwiftPM, and get acquinted with the structure of KMM projects and the cinterop feature, which took some time.
+3. Understand exactly how cinterop works, what is required, where are the files stored and how to integrate it into gradle workflow
+4. I had to learn how to use SwiftPM, and get acquinted with the structure of KMM projects and the cinterop feature, which took some time.
 
 
 ## What I learned
