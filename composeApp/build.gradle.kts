@@ -20,6 +20,10 @@ kotlin {
             val main by getting {
                 cinterops {
                     create("helloworld")
+                    create("afnetworking") {
+                        packageName("org.example.pedro.afnetworking")
+                        defFile(project.file("src/nativeInterop/cinterop/afnetworking.def"))
+                    }
                 }
             }
         }

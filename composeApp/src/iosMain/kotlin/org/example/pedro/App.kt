@@ -1,19 +1,13 @@
 package org.example.pedro
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
-
 import pedro.composeapp.generated.resources.Res
 import pedro.composeapp.generated.resources.compose_multiplatform
 
@@ -21,7 +15,7 @@ import pedro.composeapp.generated.resources.compose_multiplatform
 fun App() {
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }
-        var greeting by remember { mutableStateOf("") }
+        var responseText by remember { mutableStateOf("No response yet") }
 
         Column(
             modifier = Modifier
@@ -29,12 +23,7 @@ fun App() {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Button(onClick = {
-                showContent = !showContent
-                if (showContent) {
-                    greeting = printHelloWorld() //  Call your Swift-linked function
-                }
-            }) {
+            Button(onClick = { showContent = !showContent }) {
                 Text("Click me!")
             }
 
@@ -43,8 +32,24 @@ fun App() {
                     Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting") //  Show the Swift result
+                    Text("Compose: ${Greeting().greet()}")
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Button(onClick = {
+                        makeNetworkRequest(
+                            onSuccess = { response ->
+                                responseText = " Success: $response"
+                            },
+                            onFailure = { error ->
+                                responseText = " Error: $error"
+                            }
+                        )
+                    }) {
+                        Text("Make Network Request")
+                    }
+
+                    Spacer(modifier = Modifier.height(12.dp))
+                    Text(responseText)
                 }
             }
         }

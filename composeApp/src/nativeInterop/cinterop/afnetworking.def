@@ -1,0 +1,6 @@
+language = Objective-C
+headers = /Users/pedro/Desktop/Pedro/composeApp/src/nativeInterop/cinterop/afnetworking_include/AFNetworking.h
+package = org.example.pedro.afnetworking
+
+compilerOpts = -fno-modules -Iafnetworking_include
+linkerOpts = -framework AFNetworking
