@@ -23,6 +23,7 @@ kotlin {
                     create("afnetworking") {
                         packageName("org.example.pedro.afnetworking")
                         defFile(project.file("src/nativeInterop/cinterop/afnetworking.def"))
+                        compilerOpts("-I${project.file("src/nativeInterop/cinterop/afnetworking_include").absolutePath}")
                     }
                 }
             }

@@ -32,7 +32,7 @@ fun App() {
                     Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("Compose: ${Greeting().greet()}")
+                    Text("From swift package: ${printHelloWorld()}")
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Button(onClick = {
